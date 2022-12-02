@@ -1,10 +1,11 @@
 import { NextApiRequest } from 'next';
 import openid from 'openid';
+import publicconfig from '../../public.config';
 import config from '../../config';
 import axios from "axios";
 import { User } from '../../types';
 
-const relyingParty = new openid.RelyingParty(config.url + "/api/auth", config.url, true, true, [])
+const relyingParty = new openid.RelyingParty(publicconfig.url + "/api/auth", publicconfig.url, true, true, [])
 
 export const getRederictUrl = async (): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -46,7 +47,6 @@ const fetchIdentifier = (steamOpenId: string): Promise<User> => {
                 resolve({
                     steamid: steamId,
                     username: player.personaname,
-                    name: player.realname,
                     profile: player.profileurl,
                     avatar: {
                         small: player.avatar,

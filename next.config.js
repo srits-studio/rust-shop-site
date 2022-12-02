@@ -4,7 +4,10 @@ const nextConfig = {
 	swcMinify: true,
 	images: {
 		domains: ["avatars.akamai.steamstatic.com"]
-	}
-}
+	},
+	experimental: {
+		forceSwcTransforms: true,
+	},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
