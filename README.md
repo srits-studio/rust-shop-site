@@ -1,2 +1,2 @@
-# kipish-site
+# rust-shop
  none
